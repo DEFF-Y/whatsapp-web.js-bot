@@ -63,7 +63,8 @@ pm2 start index.js --name bot
 
 # View logs
 
-pm2 log```
+pm2 log
+```
 
 ## contributing
 
