@@ -10,6 +10,11 @@
 
 This is a Node.js ESM-based WhatsApp bot using the `whatsapp-web.js` library.
 
+## Disclamer
+Jangan menjual script ini, lebih baik saling memberi saja kepada org lain
+
+Mengubah struktur script ini dan menjual kepada org apalagi mengclaim script ini milik anda tidak akan membuat anda hebat
+
 ## Table of Contents
 
 - [Information](#information)
