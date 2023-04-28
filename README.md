@@ -3,23 +3,6 @@
 
 ![Node.js](https://img.shields.io/badge/Node.js-v14.16.1-green)
 
-![whatsapp-web.js](https://img.shields.io/badge/whatsapp--web.js-v1.13.8-blue)
-
-![License](https://img.shields.io/badge/license-MIT-yellow)
-
-This is a Node.js ESM-based WhatsApp bot using the `whatsapp-web.js` library.
-
----
-
-## Table of Contents
-
-- [Installation](#installation)
-
-  - [Ubuntu Installation](#ubuntu-installation)
-
-- [Usage](#usage)
-
-  - [Using pm2](#using-pm2)
 
   - [Using node/npm](#using-nodenpm)
 
