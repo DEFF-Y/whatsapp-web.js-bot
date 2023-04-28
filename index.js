@@ -123,7 +123,7 @@ deff.on("message_create", async (m) => {
         this.prefix = /^[./!#%^&=\,;:()]/.test(body) ? body[0] : "#";
         this.command = body?.toLowerCase().split(/\s+/)[0] || "";
         this.isCmd = body?.startsWith(this.prefix) || false;
-        this.isOwner = m.from === setting.owner;
+        this.isOwner = m.id.participant === setting.owner;
         this.quotedMessage = m.getQuotedMessage() || m;
         this.isGroup = m.id.remote.endsWith('g.us');
         this.isPrivate = m.id.remote.endsWith('c.us');
