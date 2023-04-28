@@ -1,0 +1,6 @@
+/node_modules
+/package-lock.json
+/.wwebjs_auth
+/.git
+/database.json
+/storage/database/database.json
