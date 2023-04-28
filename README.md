@@ -66,9 +66,9 @@ pm2 start index.js --name bot
 
 pm2 log```bash
 
-##contributing
+## contributing
 
-Special thanks to:
+### Special thanks to:
 
 Fatur
 
