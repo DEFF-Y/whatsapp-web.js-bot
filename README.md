@@ -10,76 +10,76 @@
 
 This is a Node.js ESM-based WhatsApp bot using the `whatsapp-web.js` library.
 
----
-
 ## Table of Contents
 
-- [Information](#information
+- [Information](#information)
 
-- [Ubuntu Installation](#ubuntu-installation)
-
-- [Run](#run)
+- [Installation](#installation)
 
 - [Contributing](#contributing)
-
----
 
 ## Information
 
 Please note that this script is not intended for use on Android/Termux. It is recommended to use Ubuntu (VPS)/Windows(RDP) or panels that support Puppeter.
 
-## Ubuntu-Installation
+## Installation
 
+### Ubuntu
 
-# Ubuntu Install
-```
-apt update && apt upgrade
+```bash
+
+# Update and upgrade system packages
+
+sudo apt update && sudo apt upgrade
+
+# Install Node.js
 
 sudo apt install nodejs
 
-sudo apt install 
+# Install Google Chrome Stable version
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-cd /whatsapp-web.js-bot
+# Clone the repository
 
-npm i
+git clone https://github.com/your-username/whatsapp-web.js-bot.git
 
-npm i pm2 -g
-```
+# Navigate to the cloned directory
 
-##Run
+cd whatsapp-web.js-bot
 
-Jika kalian menggunakan pm2
-```
-npm i pm2 -g
+# Install dependencies
+
+npm install
+
+# Install pm2 globally
+
+npm install pm2 -g
+
+# Start the bot with pm2
+
 pm2 start index.js --name bot
-pm2 log```
 
-Jika kalian menggunakan node/npm
+# View logs
 
-```node index.js
-npm start```
+pm2 log```bash
 
-Jika kalian menggunakan nodemon
+##contributing
 
-```npm i nodemon -g
-nodemon index.js```
+Special thanks to:
 
-Saya sarankan untuk menggunakan pm2
+Fatur
 
-## contributing
-#Thx To
--Fatur
+Dika Ardnt
 
--Dika Ardnt
+Amirul
 
--Amirul
+Ivanzz
 
--Ivanzz
+Filham
 
--whatsapp-web.js
+whatsapp-web.js
 
--Filham
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request.
