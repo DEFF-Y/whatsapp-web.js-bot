@@ -66,12 +66,19 @@ ${prefix}disable <options>
   }
 
   async stickerCommand(m, msg, setting, MessageMedia) {
-    let qMsg = await msg.quotedMsg;
+
+    let qMsg = await msg.quotedMessage;
+
     let [packname, author] = msg.value.split('|');
-    if (msg.quotedMsg && msg.quotedMsg.hasMedia) {
+
+    if (msg.quotedMessage && msg.quotedMessage.hasMedia) {
+
       let attachmentData = await (await qMsg.downloadMedia());
-      await m.reply(new MessageMedia(attachmentData.mimetype, attachmentData.data, attachmentData.filename), false, { sendMediaAsSticker: true, stickerName: packname || setting.packname, stickerAuthor: author || setting.packname, stickerCategories: ['😅'] });
+
+      await m.reply(new MessageMedia(attachmentData.mimetype, attachmentData.data, attachmentData.filename), false, { sendMediaAsSticker: true, stickerName: packname || setting.packname, stickerAuthor: author || setting.packname, stickerCategories: ['ðŸ˜…'] });
+
     } else return m.reply(`Reply image/video with the command:\n${msg.command}`);
+
   }
 
   async tiktokCommand(m, msg, MessageMedia) {
