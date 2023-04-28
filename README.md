@@ -26,8 +26,7 @@ Please note that this script is not intended for use on Android/Termux. It is re
 
 ### Ubuntu
 
-```bash
-
+```
 # Update and upgrade system packages
 
 sudo apt update && sudo apt upgrade
@@ -64,7 +63,7 @@ pm2 start index.js --name bot
 
 # View logs
 
-pm2 log```bash
+pm2 log```
 
 ## contributing
 
