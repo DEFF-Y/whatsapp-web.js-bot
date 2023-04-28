@@ -2,9 +2,9 @@
 
 # WhatsApp-Web.js Bot
 
-![Node.js](https://img.shields.io/badge/Node.js-v14.16.1-green)
+![Node.js](https://img.shields.io/badge/Node.js-v18.16.0-green)
 
-![whatsapp-web.js](https://img.shields.io/badge/whatsapp--web.js-v1.13.8-blue)
+![whatsapp-web.js](https://img.shields.io/badge/whatsapp--web.js-v1.19.5-blue)
 
 ![License](https://img.shields.io/badge/license-MIT-yellow)
 
