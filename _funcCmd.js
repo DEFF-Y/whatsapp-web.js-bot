@@ -66,21 +66,15 @@ ${prefix}disable <options>
   }
 
   async stickerCommand(m, msg, setting, MessageMedia) {
-
+  	try {
     let qMsg = await msg.quotedMessage;
-
     let [packname, author] = msg.value.split('|');
-
-    if (msg.quotedMessage && msg.quotedMessage.hasMedia) {
-
       let attachmentData = await (await qMsg.downloadMedia());
-
-      await m.reply(new MessageMedia(attachmentData.mimetype, attachmentData.data, attachmentData.filename), false, { sendMediaAsSticker: true, stickerName: packname || setting.packname, stickerAuthor: author || setting.packname, stickerCategories: ['ðŸ˜…'] });
-
-    } else return m.reply(`Reply image/video with the command:\n${msg.command}`);
-
-  }
-
+       await m.reply(new MessageMedia(attachmentData.mimetype, attachmentData.data, attachmentData.filename), false, { sendMediaAsSticker: true, stickerName: packname || setting.packname, stickerAuthor: author || setting.packname, stickerCategories: ['ðŸ˜…'] });
+ } catch (e) {
+     m.reply(`Reply image/video with the command:\n${msg.command}`) 
+ 	}
+ }
   async tiktokCommand(m, msg, MessageMedia) {
     if (!msg.value) return m.reply(`Input URL:\n${msg.command} https://www.tiktok.com/@initokyolagii/video/7189917930761506075`);
     m.reply(mess.waitMessage)
