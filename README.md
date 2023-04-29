@@ -85,6 +85,12 @@ Ivanzz
 
 Filham
 
-whatsapp-web.js
+Lui
+
+AzrifZyn
+
+Whatsapp-web.js
+
+Dan teman²/Lib lainya yang tidak disebutkan khusus namanya disini 
 
 If you would like to contribute to this project, feel free to fork the repository and submit a pull request.
