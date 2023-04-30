@@ -18,7 +18,7 @@ import {
 } from './components/database.js';
 
 global.setting = {
- owner: '628999699559@c.us',
+ owner: ['628999699559@c.us'],
  packname: 'Sticker by Deff/WhatsappBot-Waweb.js',
  author: 'Deff'
 }
@@ -62,7 +62,7 @@ const deff = new Client({
 
 // Mulai menjalankan client WhatsApp
 deff.initialize();
-connect().catch(() => connect())
+await connect().catch(() => connect())
 setInterval(async () => {
  fs.writeFileSync(`./storage/database/database.json`, JSON.stringify(global.db, null, 3))}, 3 * 1000)
 // Event saat loading screen muncul
@@ -136,7 +136,7 @@ deff.on("message_create", async (m) => {
     this.prefix = /^[./!#%^&=\,;:()]/.test(body) ? body[0]: "#";
     this.command = body?.toLowerCase().split(/\s+/)[0] || "";
     this.isCmd = body?.startsWith(this.prefix) || false;
-    this.isOwner = m._data.id.participant === setting.owner;
+    this.isOwner = setting.owner.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(m.author ? m.author : m.from)
     this.quotedMessage = m.getQuotedMessage() || m;
     this.isGroup = m.id.remote.endsWith('g.us');
     this.isPrivate = m.id.remote.endsWith('c.us');
@@ -266,7 +266,7 @@ deff.on("message_create", async (m) => {
   let commandTypes = {
    '>': async (msg, m) => {
     // Evaluate argument
-    if (!msg.isOwner) return;
+   if (!msg.isOwner) return;
     try {
      const result = await eval(`(async () => { return ${msg.value} })()`);
      console.log(result);
