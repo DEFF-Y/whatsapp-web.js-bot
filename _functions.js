@@ -173,5 +173,37 @@ export async function streamToBuffer(strea) {
         strea.destroy()
         return buff
     }
+export async function downloadMediaMessage(deff, message) {
+        if (!Boolean(message.mediaKey && message.directPath)) throw new Error('Not Media Message')
+
+        const result = await deff.pupPage.evaluate(async (msg) => {
+            try {
+                const decryptedMedia = await (window.Store.DownloadManager?.downloadAndMaybeDecrypt || window.Store.DownloadManager?.downloadAndDecrypt)({
+                    directPath: msg.directPath,
+                    encFilehash: msg.encFilehash,
+                    filehash: msg.filehash,
+                    mediaKey: msg.mediaKey,
+                    mediaKeyTimestamp: msg.mediaKeyTimestamp,
+                    type: msg.type,
+                    signal: (new AbortController).signal
+                });
+
+                const data = await window.WWebJS.arrayBufferToBase64Async(decryptedMedia);
+
+                return {
+                    data,
+                    mimetype: msg.mimetype,
+                    filename: msg.filename,
+                    filesize: msg.size
+                };
+            } catch (e) {
+                if (e.status && e.status === 404) return undefined
+                throw e
+            }
+        }, message)
+
+        if (!result) return undefined;
+        return base64ToBuffer(result?.data)
+    }
 
 export const format = new Formarter()
