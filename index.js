@@ -136,7 +136,7 @@ deff.on("message_create", async (m) => {
     this.prefix = /^[./!#%^&=\,;:()]/.test(body) ? body[0]: "#";
     this.command = body?.toLowerCase().split(/\s+/)[0] || "";
     this.isCmd = body?.startsWith(this.prefix) || false;
-    this.isOwner = setting.owner.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(m.author ? m.author : m.from)
+    this.isOwner = setting.owner.map(v => v.replace(/[^0-9]/g, '') + '@c.us').includes(m.author ? m.author: m.from)
     this.quotedMessage = m.getQuotedMessage() || m;
     this.isGroup = m.id.remote.endsWith('g.us');
     this.isPrivate = m.id.remote.endsWith('c.us');
@@ -254,19 +254,19 @@ deff.on("message_create", async (m) => {
    // console.log('Text no command');
   }
 
-if (msg.command.startsWith(msg.prefix)) {
-      if (!msg.isOwner && db.users[m.author ? m.author : m.from].banned) {
-        return m.reply(mess.bannedMessage);
-      } else {
-        findCommand(msg);
-      }
-    }
+  if (msg.command.startsWith(msg.prefix)) {
+   if (!msg.isOwner && db.users[m.author ? m.author: m.from].banned) {
+    return m.reply(mess.bannedMessage);
+   } else {
+    findCommand(msg);
+   }
+  }
 
   //No prefix command
   let commandTypes = {
    '>': async (msg, m) => {
     // Evaluate argument
-   if (!msg.isOwner) return;
+    if (!msg.isOwner) return;
     try {
      const result = await eval(`(async () => { return ${msg.value} })()`);
      console.log(result);
