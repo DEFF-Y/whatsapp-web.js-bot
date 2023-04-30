@@ -254,13 +254,13 @@ deff.on("message_create", async (m) => {
    // console.log('Text no command');
   }
 
-  if (msg.command.startsWith(msg.prefix)) {
-   if (!msg.isOwner && db.users[m._data.id.participant].banned === true) {
-    return m.reply(mess.bannedMessage);
-   } else {
-    findCommand(msg);
-   }
-  }
+if (msg.command.startsWith(msg.prefix)) {
+      if (!msg.isOwner && db.users[m.author ? m.author : m.from].banned) {
+        return m.reply(mess.bannedMessage);
+      } else {
+        findCommand(msg);
+      }
+    }
 
   //No prefix command
   let commandTypes = {
